@@ -15,18 +15,25 @@ X = np.array([[0,0,1],
 	            ])
 #output of input matrix
 y = np.array([[0], 		
-	             	[1], 
-	           			[1], 
-	           			[0]
-	           			])
+              [1], 
+              [1], 
+              [0]
+                 ])
+#adding bias so that for 0 input our programme doesn't make wrong prediction
+X=np.c_[np.ones(len(X)), X] 
+
 #random seed will ensure that each time we get same random number as weights so that we can easily analyse the output	           			
 np.random.seed(1) 
+
 #initialyzing initial random weights of first synaps(snaps are the link joining one layer to another layer of the Nodes which carry weights) 
 syn0 = 2*np.random.random((len(X[0]),len(X))) - 1 
+
 #initialyzing second later of synaps
 syn1 = 2*np.random.random((len(X),len(X))) - 1
+
 #initialyzing thirdayier of synaps
 syn2 = 2*np.random.random((len(X),1)) - 1 
+
 #here comes the actual part training our model and updating weights
 for j in xrange(60000):#here i use 60000 loops to train you can change it according to complexity of your model
     l0 = X #input layer 
